@@ -1,0 +1,670 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|Win32">
+      <Configuration>Debug</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|Win32">
+      <Configuration>Release</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Debug|x64">
+      <Configuration>Debug</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|x64">
+      <Configuration>Release</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <VCProjectVersion>15.0</VCProjectVersion>
+    <ProjectGuid>{86AF804F-B3D7-4FC8-BF1A-71D8541D64E9}</ProjectGuid>
+    <Keyword>Win32Proj</Keyword>
+    <RootNamespace>ColdAPISteam</RootNamespace>
+    <WindowsTargetPlatformVersion>10.0.18362.0</WindowsTargetPlatformVersion>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
+    <ConfigurationType>DynamicLibrary</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <PlatformToolset>v141</PlatformToolset>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
+    <ConfigurationType>DynamicLibrary</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <PlatformToolset>v141</PlatformToolset>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
+    <ConfigurationType>DynamicLibrary</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <PlatformToolset>v141</PlatformToolset>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
+    <ConfigurationType>DynamicLibrary</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <PlatformToolset>v141</PlatformToolset>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+    <Import Project="$(VCTargetsPath)\BuildCustomizations\masm.props" />
+  </ImportGroup>
+  <ImportGroup Label="Shared">
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <LinkIncremental>true</LinkIncremental>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <LinkIncremental>true</LinkIncremental>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <LinkIncremental>false</LinkIncremental>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <LinkIncremental>false</LinkIncremental>
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <Optimization>Disabled</Optimization>
+      <SDLCheck>true</SDLCheck>
+      <PreprocessorDefinitions>WIN32;_DEBUG;COLDAPISTEAM_EXPORTS;_WINDOWS;_USRDLL;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <ConformanceMode>true</ConformanceMode>
+      <DisableSpecificWarnings>4996</DisableSpecificWarnings>
+      <AdditionalOptions>/source-charset:utf-8 %(AdditionalOptions)</AdditionalOptions>
+    </ClCompile>
+    <Link>
+      <SubSystem>Windows</SubSystem>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <EnableUAC>false</EnableUAC>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <Optimization>Disabled</Optimization>
+      <SDLCheck>true</SDLCheck>
+      <PreprocessorDefinitions>_DEBUG;COLDAPISTEAM_EXPORTS;_WINDOWS;_USRDLL;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <ConformanceMode>true</ConformanceMode>
+      <DisableSpecificWarnings>4996</DisableSpecificWarnings>
+      <AdditionalOptions>/source-charset:utf-8 %(AdditionalOptions)</AdditionalOptions>
+    </ClCompile>
+    <Link>
+      <SubSystem>Windows</SubSystem>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <EnableUAC>false</EnableUAC>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <Optimization>MaxSpeed</Optimization>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <SDLCheck>true</SDLCheck>
+      <PreprocessorDefinitions>WIN32;NDEBUG;COLDAPISTEAM_EXPORTS;_WINDOWS;_USRDLL;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <ConformanceMode>true</ConformanceMode>
+      <DisableSpecificWarnings>4996</DisableSpecificWarnings>
+      <AdditionalOptions>/source-charset:utf-8 %(AdditionalOptions)</AdditionalOptions>
+    </ClCompile>
+    <Link>
+      <SubSystem>Windows</SubSystem>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <OptimizeReferences>true</OptimizeReferences>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <EnableUAC>false</EnableUAC>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <Optimization>MaxSpeed</Optimization>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <SDLCheck>true</SDLCheck>
+      <PreprocessorDefinitions>NDEBUG;COLDAPISTEAM_EXPORTS;_WINDOWS;_USRDLL;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <ConformanceMode>true</ConformanceMode>
+      <DisableSpecificWarnings>4996</DisableSpecificWarnings>
+      <AdditionalOptions>/source-charset:utf-8 %(AdditionalOptions)</AdditionalOptions>
+    </ClCompile>
+    <Link>
+      <SubSystem>Windows</SubSystem>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <OptimizeReferences>true</OptimizeReferences>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <EnableUAC>false</EnableUAC>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <ClInclude Include="..\src\ColdAPI_Steam\Bridge.h" />
+    <ClInclude Include="..\src\ColdAPI_Steam\ColdManager.h" />
+    <ClInclude Include="..\src\ColdAPI_Steam\CSteamCallbacks.h" />
+    <ClInclude Include="..\src\ColdAPI_Steam\Hook_utils\ColdHook.h" />
+    <ClInclude Include="..\src\ColdAPI_Steam\Hook_utils\DistormDisassembler\include\distorm.h" />
+    <ClInclude Include="..\src\ColdAPI_Steam\Hook_utils\DistormDisassembler\include\mnemonics.h" />
+    <ClInclude Include="..\src\ColdAPI_Steam\Hook_utils\DistormDisassembler\src\config.h" />
+    <ClInclude Include="..\src\ColdAPI_Steam\Hook_utils\DistormDisassembler\src\decoder.h" />
+    <ClInclude Include="..\src\ColdAPI_Steam\Hook_utils\DistormDisassembler\src\instructions.h" />
+    <ClInclude Include="..\src\ColdAPI_Steam\Hook_utils\DistormDisassembler\src\insts.h" />
+    <ClInclude Include="..\src\ColdAPI_Steam\Hook_utils\DistormDisassembler\src\operands.h" />
+    <ClInclude Include="..\src\ColdAPI_Steam\Hook_utils\DistormDisassembler\src\prefix.h" />
+    <ClInclude Include="..\src\ColdAPI_Steam\Hook_utils\DistormDisassembler\src\textdefs.h" />
+    <ClInclude Include="..\src\ColdAPI_Steam\Hook_utils\DistormDisassembler\src\wstring.h" />
+    <ClInclude Include="..\src\ColdAPI_Steam\Hook_utils\DistormDisassembler\src\x86defs.h" />
+    <ClInclude Include="..\src\ColdAPI_Steam\InterfacesEmulation\PublicConnector.h" />
+    <ClInclude Include="..\src\ColdAPI_Steam\InterfacesEmulation\SteamAppList001.h" />
+    <ClInclude Include="..\src\ColdAPI_Steam\InterfacesEmulation\SteamApps001.h" />
+    <ClInclude Include="..\src\ColdAPI_Steam\InterfacesEmulation\SteamApps002.h" />
+    <ClInclude Include="..\src\ColdAPI_Steam\InterfacesEmulation\SteamApps003.h" />
+    <ClInclude Include="..\src\ColdAPI_Steam\InterfacesEmulation\SteamApps004.h" />
+    <ClInclude Include="..\src\ColdAPI_Steam\InterfacesEmulation\SteamApps005.h" />
+    <ClInclude Include="..\src\ColdAPI_Steam\InterfacesEmulation\SteamApps006.h" />
+    <ClInclude Include="..\src\ColdAPI_Steam\InterfacesEmulation\SteamApps007.h" />
+    <ClInclude Include="..\src\ColdAPI_Steam\InterfacesEmulation\SteamApps008.h" />
+    <ClInclude Include="..\src\ColdAPI_Steam\InterfacesEmulation\SteamAppTicket001.h" />
+    <ClInclude Include="..\src\ColdAPI_Steam\InterfacesEmulation\SteamBilling001.h" />
+    <ClInclude Include="..\src\ColdAPI_Steam\InterfacesEmulation\SteamBilling002.h" />
+    <ClInclude Include="..\src\ColdAPI_Steam\InterfacesEmulation\SteamClient006.h" />
+    <ClInclude Include="..\src\ColdAPI_Steam\InterfacesEmulation\SteamClient007.h" />
+    <ClInclude Include="..\src\ColdAPI_Steam\InterfacesEmulation\SteamClient008.h" />
+    <ClInclude Include="..\src\ColdAPI_Steam\InterfacesEmulation\SteamClient009.h" />
+    <ClInclude Include="..\src\ColdAPI_Steam\InterfacesEmulation\SteamClient010.h" />
+    <ClInclude Include="..\src\ColdAPI_Steam\InterfacesEmulation\SteamClient011.h" />
+    <ClInclude Include="..\src\ColdAPI_Steam\InterfacesEmulation\SteamClient012.h" />
+    <ClInclude Include="..\src\ColdAPI_Steam\InterfacesEmulation\SteamClient013.h" />
+    <ClInclude Include="..\src\ColdAPI_Steam\InterfacesEmulation\SteamClient014.h" />
+    <ClInclude Include="..\src\ColdAPI_Steam\InterfacesEmulation\SteamClient015.h" />
+    <ClInclude Include="..\src\ColdAPI_Steam\InterfacesEmulation\SteamClient016.h" />
+    <ClInclude Include="..\src\ColdAPI_Steam\InterfacesEmulation\SteamClient017.h" />
+    <ClInclude Include="..\src\ColdAPI_Steam\InterfacesEmulation\SteamClient018.h" />
+    <ClInclude Include="..\src\ColdAPI_Steam\InterfacesEmulation\SteamClient019.h" />
+    <ClInclude Include="..\src\ColdAPI_Steam\InterfacesEmulation\SteamContentServer001.h" />
+    <ClInclude Include="..\src\ColdAPI_Steam\InterfacesEmulation\SteamContentServer002.h" />
+    <ClInclude Include="..\src\ColdAPI_Steam\InterfacesEmulation\SteamController001.h" />
+    <ClInclude Include="..\src\ColdAPI_Steam\InterfacesEmulation\SteamController002.h" />
+    <ClInclude Include="..\src\ColdAPI_Steam\InterfacesEmulation\SteamController003.h" />
+    <ClInclude Include="..\src\ColdAPI_Steam\InterfacesEmulation\SteamController004.h" />
+    <ClInclude Include="..\src\ColdAPI_Steam\InterfacesEmulation\SteamController005.h" />
+    <ClInclude Include="..\src\ColdAPI_Steam\InterfacesEmulation\SteamController006.h" />
+    <ClInclude Include="..\src\ColdAPI_Steam\InterfacesEmulation\SteamController007.h" />
+    <ClInclude Include="..\src\ColdAPI_Steam\InterfacesEmulation\SteamFriends001.h" />
+    <ClInclude Include="..\src\ColdAPI_Steam\InterfacesEmulation\SteamFriends002.h" />
+    <ClInclude Include="..\src\ColdAPI_Steam\InterfacesEmulation\SteamFriends003.h" />
+    <ClInclude Include="..\src\ColdAPI_Steam\InterfacesEmulation\SteamFriends004.h" />
+    <ClInclude Include="..\src\ColdAPI_Steam\InterfacesEmulation\SteamFriends005.h" />
+    <ClInclude Include="..\src\ColdAPI_Steam\InterfacesEmulation\SteamFriends006.h" />
+    <ClInclude Include="..\src\ColdAPI_Steam\InterfacesEmulation\SteamFriends007.h" />
+    <ClInclude Include="..\src\ColdAPI_Steam\InterfacesEmulation\SteamFriends008.h" />
+    <ClInclude Include="..\src\ColdAPI_Steam\InterfacesEmulation\SteamFriends009.h" />
+    <ClInclude Include="..\src\ColdAPI_Steam\InterfacesEmulation\SteamFriends010.h" />
+    <ClInclude Include="..\src\ColdAPI_Steam\InterfacesEmulation\SteamFriends011.h" />
+    <ClInclude Include="..\src\ColdAPI_Steam\InterfacesEmulation\SteamFriends012.h" />
+    <ClInclude Include="..\src\ColdAPI_Steam\InterfacesEmulation\SteamFriends013.h" />
+    <ClInclude Include="..\src\ColdAPI_Steam\InterfacesEmulation\SteamFriends014.h" />
+    <ClInclude Include="..\src\ColdAPI_Steam\InterfacesEmulation\SteamFriends015.h" />
+    <ClInclude Include="..\src\ColdAPI_Steam\InterfacesEmulation\SteamFriends016.h" />
+    <ClInclude Include="..\src\ColdAPI_Steam\InterfacesEmulation\SteamFriends017.h" />
+    <ClInclude Include="..\src\ColdAPI_Steam\InterfacesEmulation\SteamGameCoordinator001.h" />
+    <ClInclude Include="..\src\ColdAPI_Steam\InterfacesEmulation\SteamGameSearch001.h" />
+    <ClInclude Include="..\src\ColdAPI_Steam\InterfacesEmulation\SteamGameServer002.h" />
+    <ClInclude Include="..\src\ColdAPI_Steam\InterfacesEmulation\SteamGameServer003.h" />
+    <ClInclude Include="..\src\ColdAPI_Steam\InterfacesEmulation\SteamGameServer004.h" />
+    <ClInclude Include="..\src\ColdAPI_Steam\InterfacesEmulation\SteamGameServer005.h" />
+    <ClInclude Include="..\src\ColdAPI_Steam\InterfacesEmulation\SteamGameServer006.h" />
+    <ClInclude Include="..\src\ColdAPI_Steam\InterfacesEmulation\SteamGameServer007.h" />
+    <ClInclude Include="..\src\ColdAPI_Steam\InterfacesEmulation\SteamGameServer008.h" />
+    <ClInclude Include="..\src\ColdAPI_Steam\InterfacesEmulation\SteamGameServer009.h" />
+    <ClInclude Include="..\src\ColdAPI_Steam\InterfacesEmulation\SteamGameServer010.h" />
+    <ClInclude Include="..\src\ColdAPI_Steam\InterfacesEmulation\SteamGameServer011.h" />
+    <ClInclude Include="..\src\ColdAPI_Steam\InterfacesEmulation\SteamGameServer012.h" />
+    <ClInclude Include="..\src\ColdAPI_Steam\InterfacesEmulation\SteamGameServerStats001.h" />
+    <ClInclude Include="..\src\ColdAPI_Steam\InterfacesEmulation\SteamHTMLSurface002.h" />
+    <ClInclude Include="..\src\ColdAPI_Steam\InterfacesEmulation\SteamHTMLSurface003.h" />
+    <ClInclude Include="..\src\ColdAPI_Steam\InterfacesEmulation\SteamHTMLSurface004.h" />
+    <ClInclude Include="..\src\ColdAPI_Steam\InterfacesEmulation\SteamHTMLSurface005.h" />
+    <ClInclude Include="..\src\ColdAPI_Steam\InterfacesEmulation\SteamHTTP001.h" />
+    <ClInclude Include="..\src\ColdAPI_Steam\InterfacesEmulation\SteamHTTP002.h" />
+    <ClInclude Include="..\src\ColdAPI_Steam\InterfacesEmulation\SteamHTTP003.h" />
+    <ClInclude Include="..\src\ColdAPI_Steam\InterfacesEmulation\SteamInput001.h" />
+    <ClInclude Include="..\src\ColdAPI_Steam\InterfacesEmulation\SteamInventory001.h" />
+    <ClInclude Include="..\src\ColdAPI_Steam\InterfacesEmulation\SteamInventory002.h" />
+    <ClInclude Include="..\src\ColdAPI_Steam\InterfacesEmulation\SteamInventory003.h" />
+    <ClInclude Include="..\src\ColdAPI_Steam\InterfacesEmulation\SteamMatchmaking001.h" />
+    <ClInclude Include="..\src\ColdAPI_Steam\InterfacesEmulation\SteamMatchmaking002.h" />
+    <ClInclude Include="..\src\ColdAPI_Steam\InterfacesEmulation\SteamMatchmaking003.h" />
+    <ClInclude Include="..\src\ColdAPI_Steam\InterfacesEmulation\SteamMatchmaking004.h" />
+    <ClInclude Include="..\src\ColdAPI_Steam\InterfacesEmulation\SteamMatchmaking005.h" />
+    <ClInclude Include="..\src\ColdAPI_Steam\InterfacesEmulation\SteamMatchmaking006.h" />
+    <ClInclude Include="..\src\ColdAPI_Steam\InterfacesEmulation\SteamMatchmaking007.h" />
+    <ClInclude Include="..\src\ColdAPI_Steam\InterfacesEmulation\SteamMatchmaking008.h" />
+    <ClInclude Include="..\src\ColdAPI_Steam\InterfacesEmulation\SteamMatchmaking009.h" />
+    <ClInclude Include="..\src\ColdAPI_Steam\InterfacesEmulation\SteamMatchmakingServers001.h" />
+    <ClInclude Include="..\src\ColdAPI_Steam\InterfacesEmulation\SteamMatchmakingServers002.h" />
+    <ClInclude Include="..\src\ColdAPI_Steam\InterfacesEmulation\SteamMusic001.h" />
+    <ClInclude Include="..\src\ColdAPI_Steam\InterfacesEmulation\SteamMusicRemote001.h" />
+    <ClInclude Include="..\src\ColdAPI_Steam\InterfacesEmulation\SteamNetworking001.h" />
+    <ClInclude Include="..\src\ColdAPI_Steam\InterfacesEmulation\SteamNetworking002.h" />
+    <ClInclude Include="..\src\ColdAPI_Steam\InterfacesEmulation\SteamNetworking003.h" />
+    <ClInclude Include="..\src\ColdAPI_Steam\InterfacesEmulation\SteamNetworking004.h" />
+    <ClInclude Include="..\src\ColdAPI_Steam\InterfacesEmulation\SteamNetworking005.h" />
+    <ClInclude Include="..\src\ColdAPI_Steam\InterfacesEmulation\SteamParentalSettings001.h" />
+    <ClInclude Include="..\src\ColdAPI_Steam\InterfacesEmulation\SteamParties002.h" />
+    <ClInclude Include="..\src\ColdAPI_Steam\InterfacesEmulation\SteamRemotePlay001.h" />
+    <ClInclude Include="..\src\ColdAPI_Steam\InterfacesEmulation\SteamRemoteStorage001.h" />
+    <ClInclude Include="..\src\ColdAPI_Steam\InterfacesEmulation\SteamRemoteStorage002.h" />
+    <ClInclude Include="..\src\ColdAPI_Steam\InterfacesEmulation\SteamRemoteStorage003.h" />
+    <ClInclude Include="..\src\ColdAPI_Steam\InterfacesEmulation\SteamRemoteStorage004.h" />
+    <ClInclude Include="..\src\ColdAPI_Steam\InterfacesEmulation\SteamRemoteStorage005.h" />
+    <ClInclude Include="..\src\ColdAPI_Steam\InterfacesEmulation\SteamRemoteStorage006.h" />
+    <ClInclude Include="..\src\ColdAPI_Steam\InterfacesEmulation\SteamRemoteStorage007.h" />
+    <ClInclude Include="..\src\ColdAPI_Steam\InterfacesEmulation\SteamRemoteStorage008.h" />
+    <ClInclude Include="..\src\ColdAPI_Steam\InterfacesEmulation\SteamRemoteStorage009.h" />
+    <ClInclude Include="..\src\ColdAPI_Steam\InterfacesEmulation\SteamRemoteStorage010.h" />
+    <ClInclude Include="..\src\ColdAPI_Steam\InterfacesEmulation\SteamRemoteStorage011.h" />
+    <ClInclude Include="..\src\ColdAPI_Steam\InterfacesEmulation\SteamRemoteStorage012.h" />
+    <ClInclude Include="..\src\ColdAPI_Steam\InterfacesEmulation\SteamRemoteStorage013.h" />
+    <ClInclude Include="..\src\ColdAPI_Steam\InterfacesEmulation\SteamRemoteStorage014.h" />
+    <ClInclude Include="..\src\ColdAPI_Steam\InterfacesEmulation\SteamScreenshots001.h" />
+    <ClInclude Include="..\src\ColdAPI_Steam\InterfacesEmulation\SteamScreenshots002.h" />
+    <ClInclude Include="..\src\ColdAPI_Steam\InterfacesEmulation\SteamScreenshots003.h" />
+    <ClInclude Include="..\src\ColdAPI_Steam\InterfacesEmulation\SteamUGC001.h" />
+    <ClInclude Include="..\src\ColdAPI_Steam\InterfacesEmulation\SteamUGC002.h" />
+    <ClInclude Include="..\src\ColdAPI_Steam\InterfacesEmulation\SteamUGC003.h" />
+    <ClInclude Include="..\src\ColdAPI_Steam\InterfacesEmulation\SteamUGC004.h" />
+    <ClInclude Include="..\src\ColdAPI_Steam\InterfacesEmulation\SteamUGC005.h" />
+    <ClInclude Include="..\src\ColdAPI_Steam\InterfacesEmulation\SteamUGC007.h" />
+    <ClInclude Include="..\src\ColdAPI_Steam\InterfacesEmulation\SteamUGC008.h" />
+    <ClInclude Include="..\src\ColdAPI_Steam\InterfacesEmulation\SteamUGC009.h" />
+    <ClInclude Include="..\src\ColdAPI_Steam\InterfacesEmulation\SteamUGC010.h" />
+    <ClInclude Include="..\src\ColdAPI_Steam\InterfacesEmulation\SteamUGC012.h" />
+    <ClInclude Include="..\src\ColdAPI_Steam\InterfacesEmulation\SteamUGC013.h" />
+    <ClInclude Include="..\src\ColdAPI_Steam\InterfacesEmulation\SteamUnifiedMessages001.h" />
+    <ClInclude Include="..\src\ColdAPI_Steam\InterfacesEmulation\SteamUser004.h" />
+    <ClInclude Include="..\src\ColdAPI_Steam\InterfacesEmulation\SteamUser005.h" />
+    <ClInclude Include="..\src\ColdAPI_Steam\InterfacesEmulation\SteamUser006.h" />
+    <ClInclude Include="..\src\ColdAPI_Steam\InterfacesEmulation\SteamUser007.h" />
+    <ClInclude Include="..\src\ColdAPI_Steam\InterfacesEmulation\SteamUser008.h" />
+    <ClInclude Include="..\src\ColdAPI_Steam\InterfacesEmulation\SteamUser009.h" />
+    <ClInclude Include="..\src\ColdAPI_Steam\InterfacesEmulation\SteamUser010.h" />
+    <ClInclude Include="..\src\ColdAPI_Steam\InterfacesEmulation\SteamUser011.h" />
+    <ClInclude Include="..\src\ColdAPI_Steam\InterfacesEmulation\SteamUser012.h" />
+    <ClInclude Include="..\src\ColdAPI_Steam\InterfacesEmulation\SteamUser013.h" />
+    <ClInclude Include="..\src\ColdAPI_Steam\InterfacesEmulation\SteamUser014.h" />
+    <ClInclude Include="..\src\ColdAPI_Steam\InterfacesEmulation\SteamUser015.h" />
+    <ClInclude Include="..\src\ColdAPI_Steam\InterfacesEmulation\SteamUser016.h" />
+    <ClInclude Include="..\src\ColdAPI_Steam\InterfacesEmulation\SteamUser017.h" />
+    <ClInclude Include="..\src\ColdAPI_Steam\InterfacesEmulation\SteamUser018.h" />
+    <ClInclude Include="..\src\ColdAPI_Steam\InterfacesEmulation\SteamUser019.h" />
+    <ClInclude Include="..\src\ColdAPI_Steam\InterfacesEmulation\SteamUser020.h" />
+    <ClInclude Include="..\src\ColdAPI_Steam\InterfacesEmulation\SteamUserStats001.h" />
+    <ClInclude Include="..\src\ColdAPI_Steam\InterfacesEmulation\SteamUserStats002.h" />
+    <ClInclude Include="..\src\ColdAPI_Steam\InterfacesEmulation\SteamUserStats003.h" />
+    <ClInclude Include="..\src\ColdAPI_Steam\InterfacesEmulation\SteamUserStats004.h" />
+    <ClInclude Include="..\src\ColdAPI_Steam\InterfacesEmulation\SteamUserStats005.h" />
+    <ClInclude Include="..\src\ColdAPI_Steam\InterfacesEmulation\SteamUserStats006.h" />
+    <ClInclude Include="..\src\ColdAPI_Steam\InterfacesEmulation\SteamUserStats007.h" />
+    <ClInclude Include="..\src\ColdAPI_Steam\InterfacesEmulation\SteamUserStats008.h" />
+    <ClInclude Include="..\src\ColdAPI_Steam\InterfacesEmulation\SteamUserStats009.h" />
+    <ClInclude Include="..\src\ColdAPI_Steam\InterfacesEmulation\SteamUserStats010.h" />
+    <ClInclude Include="..\src\ColdAPI_Steam\InterfacesEmulation\SteamUserStats011.h" />
+    <ClInclude Include="..\src\ColdAPI_Steam\InterfacesEmulation\SteamUtils001.h" />
+    <ClInclude Include="..\src\ColdAPI_Steam\InterfacesEmulation\SteamUtils002.h" />
+    <ClInclude Include="..\src\ColdAPI_Steam\InterfacesEmulation\SteamUtils003.h" />
+    <ClInclude Include="..\src\ColdAPI_Steam\InterfacesEmulation\SteamUtils004.h" />
+    <ClInclude Include="..\src\ColdAPI_Steam\InterfacesEmulation\SteamUtils005.h" />
+    <ClInclude Include="..\src\ColdAPI_Steam\InterfacesEmulation\SteamUtils006.h" />
+    <ClInclude Include="..\src\ColdAPI_Steam\InterfacesEmulation\SteamUtils007.h" />
+    <ClInclude Include="..\src\ColdAPI_Steam\InterfacesEmulation\SteamUtils008.h" />
+    <ClInclude Include="..\src\ColdAPI_Steam\InterfacesEmulation\SteamUtils009.h" />
+    <ClInclude Include="..\src\ColdAPI_Steam\InterfacesEmulation\SteamVideo001.h" />
+    <ClInclude Include="..\src\ColdAPI_Steam\InterfacesEmulation\SteamVideo002.h" />
+    <ClInclude Include="..\src\ColdAPI_Steam\public SDK\AppListCommon.h" />
+    <ClInclude Include="..\src\ColdAPI_Steam\public SDK\AppsCommon.h" />
+    <ClInclude Include="..\src\ColdAPI_Steam\public SDK\AppTicketCommon.h" />
+    <ClInclude Include="..\src\ColdAPI_Steam\public SDK\BillingCommon.h" />
+    <ClInclude Include="..\src\ColdAPI_Steam\public SDK\BridgeCommon.h" />
+    <ClInclude Include="..\src\ColdAPI_Steam\public SDK\CCallback.h" />
+    <ClInclude Include="..\src\ColdAPI_Steam\public SDK\CGameID.h" />
+    <ClInclude Include="..\src\ColdAPI_Steam\public SDK\ClientCommon.h" />
+    <ClInclude Include="..\src\ColdAPI_Steam\public SDK\ContentServerCommon.h" />
+    <ClInclude Include="..\src\ColdAPI_Steam\public SDK\ControllerCommon.h" />
+    <ClInclude Include="..\src\ColdAPI_Steam\public SDK\CSteamAPIContext.h" />
+    <ClInclude Include="..\src\ColdAPI_Steam\public SDK\CSteamID.h" />
+    <ClInclude Include="..\src\ColdAPI_Steam\public SDK\EBeginAuthSessionResult.h" />
+    <ClInclude Include="..\src\ColdAPI_Steam\public SDK\ECurrencyCode.h" />
+    <ClInclude Include="..\src\ColdAPI_Steam\public SDK\EnumString.h" />
+    <ClInclude Include="..\src\ColdAPI_Steam\public SDK\EResult.h" />
+    <ClInclude Include="..\src\ColdAPI_Steam\public SDK\ESteamAppUpdateStatsQueryType.h" />
+    <ClInclude Include="..\src\ColdAPI_Steam\public SDK\ESteamBufferMethod.h" />
+    <ClInclude Include="..\src\ColdAPI_Steam\public SDK\ESteamError.h" />
+    <ClInclude Include="..\src\ColdAPI_Steam\public SDK\ESteamFindFilter.h" />
+    <ClInclude Include="..\src\ColdAPI_Steam\public SDK\ESteamNotify.h" />
+    <ClInclude Include="..\src\ColdAPI_Steam\public SDK\ESteamPaymentCardType.h" />
+    <ClInclude Include="..\src\ColdAPI_Steam\public SDK\ESteamSeekMethod.h" />
+    <ClInclude Include="..\src\ColdAPI_Steam\public SDK\ESteamServerType.h" />
+    <ClInclude Include="..\src\ColdAPI_Steam\public SDK\ESteamSubscriptionBillingInfoType.h" />
+    <ClInclude Include="..\src\ColdAPI_Steam\public SDK\ESteamSubscriptionStatus.h" />
+    <ClInclude Include="..\src\ColdAPI_Steam\public SDK\EUserHasLicenseForAppResult.h" />
+    <ClInclude Include="..\src\ColdAPI_Steam\public SDK\EVoiceResult.h" />
+    <ClInclude Include="..\src\ColdAPI_Steam\public SDK\FriendGameInfo.h" />
+    <ClInclude Include="..\src\ColdAPI_Steam\public SDK\FriendsCommon.h" />
+    <ClInclude Include="..\src\ColdAPI_Steam\public SDK\GameCoordinatorCommon.h" />
+    <ClInclude Include="..\src\ColdAPI_Steam\public SDK\GameServerCommon.h" />
+    <ClInclude Include="..\src\ColdAPI_Steam\public SDK\gameserveritem.h" />
+    <ClInclude Include="..\src\ColdAPI_Steam\public SDK\GameServerStatsCommon.h" />
+    <ClInclude Include="..\src\ColdAPI_Steam\public SDK\GameStatsCommon.h" />
+    <ClInclude Include="..\src\ColdAPI_Steam\public SDK\HTMLSurfaceCommon.h" />
+    <ClInclude Include="..\src\ColdAPI_Steam\public SDK\HTTPCommon.h" />
+    <ClInclude Include="..\src\ColdAPI_Steam\public SDK\IClientAppManager.h" />
+    <ClInclude Include="..\src\ColdAPI_Steam\public SDK\IClientApps.h" />
+    <ClInclude Include="..\src\ColdAPI_Steam\public SDK\IClientAudio.h" />
+    <ClInclude Include="..\src\ColdAPI_Steam\public SDK\IClientBilling.h" />
+    <ClInclude Include="..\src\ColdAPI_Steam\public SDK\IClientConfigStore.h" />
+    <ClInclude Include="..\src\ColdAPI_Steam\public SDK\IClientContentServer.h" />
+    <ClInclude Include="..\src\ColdAPI_Steam\public SDK\IClientDepotBuilder.h" />
+    <ClInclude Include="..\src\ColdAPI_Steam\public SDK\IClientDeviceAuth.h" />
+    <ClInclude Include="..\src\ColdAPI_Steam\public SDK\IClientEngine.h" />
+    <ClInclude Include="..\src\ColdAPI_Steam\public SDK\IClientFriends.h" />
+    <ClInclude Include="..\src\ColdAPI_Steam\public SDK\IClientGameCoordinator.h" />
+    <ClInclude Include="..\src\ColdAPI_Steam\public SDK\IClientGameServer.h" />
+    <ClInclude Include="..\src\ColdAPI_Steam\public SDK\IClientGameServerStats.h" />
+    <ClInclude Include="..\src\ColdAPI_Steam\public SDK\IClientGameStats.h" />
+    <ClInclude Include="..\src\ColdAPI_Steam\public SDK\IClientHTTP.h" />
+    <ClInclude Include="..\src\ColdAPI_Steam\public SDK\IClientInventory.h" />
+    <ClInclude Include="..\src\ColdAPI_Steam\public SDK\IClientMasterServerUpdater.h" />
+    <ClInclude Include="..\src\ColdAPI_Steam\public SDK\IClientMatchmaking.h" />
+    <ClInclude Include="..\src\ColdAPI_Steam\public SDK\IClientMatchmakingServers.h" />
+    <ClInclude Include="..\src\ColdAPI_Steam\public SDK\IClientMusic.h" />
+    <ClInclude Include="..\src\ColdAPI_Steam\public SDK\IClientNetworkDeviceManager.h" />
+    <ClInclude Include="..\src\ColdAPI_Steam\public SDK\IClientNetworking.h" />
+    <ClInclude Include="..\src\ColdAPI_Steam\public SDK\IClientProductBuilder.h" />
+    <ClInclude Include="..\src\ColdAPI_Steam\public SDK\IClientRemoteStorage.h" />
+    <ClInclude Include="..\src\ColdAPI_Steam\public SDK\IClientScreenshots.h" />
+    <ClInclude Include="..\src\ColdAPI_Steam\public SDK\IClientShortcuts.h" />
+    <ClInclude Include="..\src\ColdAPI_Steam\public SDK\IClientStreamClient.h" />
+    <ClInclude Include="..\src\ColdAPI_Steam\public SDK\IClientStreamLauncher.h" />
+    <ClInclude Include="..\src\ColdAPI_Steam\public SDK\IClientUGC.h" />
+    <ClInclude Include="..\src\ColdAPI_Steam\public SDK\IClientUnifiedMessages.h" />
+    <ClInclude Include="..\src\ColdAPI_Steam\public SDK\IClientUser.h" />
+    <ClInclude Include="..\src\ColdAPI_Steam\public SDK\IClientUserStats.h" />
+    <ClInclude Include="..\src\ColdAPI_Steam\public SDK\IClientUtils.h" />
+    <ClInclude Include="..\src\ColdAPI_Steam\public SDK\Interface_OSW.h" />
+    <ClInclude Include="..\src\ColdAPI_Steam\public SDK\InventoryCommon.h" />
+    <ClInclude Include="..\src\ColdAPI_Steam\public SDK\ISteam003.h" />
+    <ClInclude Include="..\src\ColdAPI_Steam\public SDK\ISteam004.h" />
+    <ClInclude Include="..\src\ColdAPI_Steam\public SDK\ISteam005.h" />
+    <ClInclude Include="..\src\ColdAPI_Steam\public SDK\ISteam006.h" />
+    <ClInclude Include="..\src\ColdAPI_Steam\public SDK\ISteam2Bridge001.h" />
+    <ClInclude Include="..\src\ColdAPI_Steam\public SDK\ISteam2Bridge002.h" />
+    <ClInclude Include="..\src\ColdAPI_Steam\public SDK\ISteamAppList001.h" />
+    <ClInclude Include="..\src\ColdAPI_Steam\public SDK\ISteamApps001.h" />
+    <ClInclude Include="..\src\ColdAPI_Steam\public SDK\ISteamApps002.h" />
+    <ClInclude Include="..\src\ColdAPI_Steam\public SDK\ISteamApps003.h" />
+    <ClInclude Include="..\src\ColdAPI_Steam\public SDK\ISteamApps004.h" />
+    <ClInclude Include="..\src\ColdAPI_Steam\public SDK\ISteamApps005.h" />
+    <ClInclude Include="..\src\ColdAPI_Steam\public SDK\ISteamApps006.h" />
+    <ClInclude Include="..\src\ColdAPI_Steam\public SDK\ISteamApps007.h" />
+    <ClInclude Include="..\src\ColdAPI_Steam\public SDK\ISteamApps008.h" />
+    <ClInclude Include="..\src\ColdAPI_Steam\public SDK\ISteamAppTicket001.h" />
+    <ClInclude Include="..\src\ColdAPI_Steam\public SDK\ISteamBilling001.h" />
+    <ClInclude Include="..\src\ColdAPI_Steam\public SDK\ISteamBilling002.h" />
+    <ClInclude Include="..\src\ColdAPI_Steam\public SDK\ISteamClient006.h" />
+    <ClInclude Include="..\src\ColdAPI_Steam\public SDK\ISteamClient007.h" />
+    <ClInclude Include="..\src\ColdAPI_Steam\public SDK\ISteamClient008.h" />
+    <ClInclude Include="..\src\ColdAPI_Steam\public SDK\ISteamClient009.h" />
+    <ClInclude Include="..\src\ColdAPI_Steam\public SDK\ISteamClient010.h" />
+    <ClInclude Include="..\src\ColdAPI_Steam\public SDK\ISteamClient011.h" />
+    <ClInclude Include="..\src\ColdAPI_Steam\public SDK\ISteamClient012.h" />
+    <ClInclude Include="..\src\ColdAPI_Steam\public SDK\ISteamClient013.h" />
+    <ClInclude Include="..\src\ColdAPI_Steam\public SDK\ISteamClient014.h" />
+    <ClInclude Include="..\src\ColdAPI_Steam\public SDK\ISteamClient015.h" />
+    <ClInclude Include="..\src\ColdAPI_Steam\public SDK\ISteamClient016.h" />
+    <ClInclude Include="..\src\ColdAPI_Steam\public SDK\ISteamClient017.h" />
+    <ClInclude Include="..\src\ColdAPI_Steam\public SDK\ISteamClient018.h" />
+    <ClInclude Include="..\src\ColdAPI_Steam\public SDK\ISteamClient019.h" />
+    <ClInclude Include="..\src\ColdAPI_Steam\public SDK\ISteamContentServer001.h" />
+    <ClInclude Include="..\src\ColdAPI_Steam\public SDK\ISteamContentServer002.h" />
+    <ClInclude Include="..\src\ColdAPI_Steam\public SDK\ISteamController001.h" />
+    <ClInclude Include="..\src\ColdAPI_Steam\public SDK\ISteamController002.h" />
+    <ClInclude Include="..\src\ColdAPI_Steam\public SDK\ISteamController003.h" />
+    <ClInclude Include="..\src\ColdAPI_Steam\public SDK\ISteamController004.h" />
+    <ClInclude Include="..\src\ColdAPI_Steam\public SDK\ISteamController005.h" />
+    <ClInclude Include="..\src\ColdAPI_Steam\public SDK\ISteamController006.h" />
+    <ClInclude Include="..\src\ColdAPI_Steam\public SDK\ISteamController007.h" />
+    <ClInclude Include="..\src\ColdAPI_Steam\public SDK\ISteamFriends001.h" />
+    <ClInclude Include="..\src\ColdAPI_Steam\public SDK\ISteamFriends002.h" />
+    <ClInclude Include="..\src\ColdAPI_Steam\public SDK\ISteamFriends003.h" />
+    <ClInclude Include="..\src\ColdAPI_Steam\public SDK\ISteamFriends004.h" />
+    <ClInclude Include="..\src\ColdAPI_Steam\public SDK\ISteamFriends005.h" />
+    <ClInclude Include="..\src\ColdAPI_Steam\public SDK\ISteamFriends006.h" />
+    <ClInclude Include="..\src\ColdAPI_Steam\public SDK\ISteamFriends007.h" />
+    <ClInclude Include="..\src\ColdAPI_Steam\public SDK\ISteamFriends008.h" />
+    <ClInclude Include="..\src\ColdAPI_Steam\public SDK\ISteamFriends009.h" />
+    <ClInclude Include="..\src\ColdAPI_Steam\public SDK\ISteamFriends010.h" />
+    <ClInclude Include="..\src\ColdAPI_Steam\public SDK\ISteamFriends011.h" />
+    <ClInclude Include="..\src\ColdAPI_Steam\public SDK\ISteamFriends012.h" />
+    <ClInclude Include="..\src\ColdAPI_Steam\public SDK\ISteamFriends013.h" />
+    <ClInclude Include="..\src\ColdAPI_Steam\public SDK\ISteamFriends014.h" />
+    <ClInclude Include="..\src\ColdAPI_Steam\public SDK\ISteamFriends015.h" />
+    <ClInclude Include="..\src\ColdAPI_Steam\public SDK\ISteamFriends016.h" />
+    <ClInclude Include="..\src\ColdAPI_Steam\public SDK\ISteamFriends017.h" />
+    <ClInclude Include="..\src\ColdAPI_Steam\public SDK\ISteamGameCoordinator001.h" />
+    <ClInclude Include="..\src\ColdAPI_Steam\public SDK\ISteamGameSearch001.h" />
+    <ClInclude Include="..\src\ColdAPI_Steam\public SDK\ISteamGameServer002.h" />
+    <ClInclude Include="..\src\ColdAPI_Steam\public SDK\ISteamGameServer003.h" />
+    <ClInclude Include="..\src\ColdAPI_Steam\public SDK\ISteamGameServer004.h" />
+    <ClInclude Include="..\src\ColdAPI_Steam\public SDK\ISteamGameServer005.h" />
+    <ClInclude Include="..\src\ColdAPI_Steam\public SDK\ISteamGameServer006.h" />
+    <ClInclude Include="..\src\ColdAPI_Steam\public SDK\ISteamGameServer007.h" />
+    <ClInclude Include="..\src\ColdAPI_Steam\public SDK\ISteamGameServer008.h" />
+    <ClInclude Include="..\src\ColdAPI_Steam\public SDK\ISteamGameServer009.h" />
+    <ClInclude Include="..\src\ColdAPI_Steam\public SDK\ISteamGameServer010.h" />
+    <ClInclude Include="..\src\ColdAPI_Steam\public SDK\ISteamGameServer011.h" />
+    <ClInclude Include="..\src\ColdAPI_Steam\public SDK\ISteamGameServer012.h" />
+    <ClInclude Include="..\src\ColdAPI_Steam\public SDK\ISteamGameServerStats001.h" />
+    <ClInclude Include="..\src\ColdAPI_Steam\public SDK\ISteamGameStats001.h" />
+    <ClInclude Include="..\src\ColdAPI_Steam\public SDK\ISteamHTMLSurface002.h" />
+    <ClInclude Include="..\src\ColdAPI_Steam\public SDK\ISteamHTMLSurface003.h" />
+    <ClInclude Include="..\src\ColdAPI_Steam\public SDK\ISteamHTMLSurface004.h" />
+    <ClInclude Include="..\src\ColdAPI_Steam\public SDK\ISteamHTMLSurface005.h" />
+    <ClInclude Include="..\src\ColdAPI_Steam\public SDK\ISteamHTTP001.h" />
+    <ClInclude Include="..\src\ColdAPI_Steam\public SDK\ISteamHTTP002.h" />
+    <ClInclude Include="..\src\ColdAPI_Steam\public SDK\ISteamHTTP003.h" />
+    <ClInclude Include="..\src\ColdAPI_Steam\public SDK\ISteamImput001.h" />
+    <ClInclude Include="..\src\ColdAPI_Steam\public SDK\ISteamInventory001.h" />
+    <ClInclude Include="..\src\ColdAPI_Steam\public SDK\ISteamInventory002.h" />
+    <ClInclude Include="..\src\ColdAPI_Steam\public SDK\ISteamInventory003.h" />
+    <ClInclude Include="..\src\ColdAPI_Steam\public SDK\ISteamMasterServerUpdater001.h" />
+    <ClInclude Include="..\src\ColdAPI_Steam\public SDK\ISteamMatchmaking001.h" />
+    <ClInclude Include="..\src\ColdAPI_Steam\public SDK\ISteamMatchmaking002.h" />
+    <ClInclude Include="..\src\ColdAPI_Steam\public SDK\ISteamMatchmaking003.h" />
+    <ClInclude Include="..\src\ColdAPI_Steam\public SDK\ISteamMatchmaking004.h" />
+    <ClInclude Include="..\src\ColdAPI_Steam\public SDK\ISteamMatchmaking005.h" />
+    <ClInclude Include="..\src\ColdAPI_Steam\public SDK\ISteamMatchmaking006.h" />
+    <ClInclude Include="..\src\ColdAPI_Steam\public SDK\ISteamMatchmaking007.h" />
+    <ClInclude Include="..\src\ColdAPI_Steam\public SDK\ISteamMatchmaking008.h" />
+    <ClInclude Include="..\src\ColdAPI_Steam\public SDK\ISteamMatchmaking009.h" />
+    <ClInclude Include="..\src\ColdAPI_Steam\public SDK\ISteamMatchmakingServers001.h" />
+    <ClInclude Include="..\src\ColdAPI_Steam\public SDK\ISteamMatchmakingServers002.h" />
+    <ClInclude Include="..\src\ColdAPI_Steam\public SDK\ISteamMusic001.h" />
+    <ClInclude Include="..\src\ColdAPI_Steam\public SDK\ISteamMusicRemote001.h" />
+    <ClInclude Include="..\src\ColdAPI_Steam\public SDK\ISteamNetworking001.h" />
+    <ClInclude Include="..\src\ColdAPI_Steam\public SDK\ISteamNetworking002.h" />
+    <ClInclude Include="..\src\ColdAPI_Steam\public SDK\ISteamNetworking003.h" />
+    <ClInclude Include="..\src\ColdAPI_Steam\public SDK\ISteamNetworking004.h" />
+    <ClInclude Include="..\src\ColdAPI_Steam\public SDK\ISteamNetworking005.h" />
+    <ClInclude Include="..\src\ColdAPI_Steam\public SDK\ISteamOAuth001.h" />
+    <ClInclude Include="..\src\ColdAPI_Steam\public SDK\isteamparentalsettings.h" />
+    <ClInclude Include="..\src\ColdAPI_Steam\public SDK\ISteamParties002.h" />
+    <ClInclude Include="..\src\ColdAPI_Steam\public SDK\ISteamRemotePlay001.h" />
+    <ClInclude Include="..\src\ColdAPI_Steam\public SDK\ISteamRemoteStorage001.h" />
+    <ClInclude Include="..\src\ColdAPI_Steam\public SDK\ISteamRemoteStorage002.h" />
+    <ClInclude Include="..\src\ColdAPI_Steam\public SDK\ISteamRemoteStorage003.h" />
+    <ClInclude Include="..\src\ColdAPI_Steam\public SDK\ISteamRemoteStorage004.h" />
+    <ClInclude Include="..\src\ColdAPI_Steam\public SDK\ISteamRemoteStorage005.h" />
+    <ClInclude Include="..\src\ColdAPI_Steam\public SDK\ISteamRemoteStorage006.h" />
+    <ClInclude Include="..\src\ColdAPI_Steam\public SDK\ISteamRemoteStorage007.h" />
+    <ClInclude Include="..\src\ColdAPI_Steam\public SDK\ISteamRemoteStorage008.h" />
+    <ClInclude Include="..\src\ColdAPI_Steam\public SDK\ISteamRemoteStorage009.h" />
+    <ClInclude Include="..\src\ColdAPI_Steam\public SDK\ISteamRemoteStorage010.h" />
+    <ClInclude Include="..\src\ColdAPI_Steam\public SDK\ISteamRemoteStorage011.h" />
+    <ClInclude Include="..\src\ColdAPI_Steam\public SDK\ISteamRemoteStorage012.h" />
+    <ClInclude Include="..\src\ColdAPI_Steam\public SDK\ISteamRemoteStorage013.h" />
+    <ClInclude Include="..\src\ColdAPI_Steam\public SDK\ISteamRemoteStorage014.h" />
+    <ClInclude Include="..\src\ColdAPI_Steam\public SDK\ISteamScreenshots001.h" />
+    <ClInclude Include="..\src\ColdAPI_Steam\public SDK\ISteamScreenshots002.h" />
+    <ClInclude Include="..\src\ColdAPI_Steam\public SDK\ISteamScreenshots003.h" />
+    <ClInclude Include="..\src\ColdAPI_Steam\public SDK\ISteamStreamLauncher001.h" />
+    <ClInclude Include="..\src\ColdAPI_Steam\public SDK\ISteamUGC001.h" />
+    <ClInclude Include="..\src\ColdAPI_Steam\public SDK\ISteamUGC002.h" />
+    <ClInclude Include="..\src\ColdAPI_Steam\public SDK\ISteamUGC003.h" />
+    <ClInclude Include="..\src\ColdAPI_Steam\public SDK\ISteamUGC004.h" />
+    <ClInclude Include="..\src\ColdAPI_Steam\public SDK\ISteamUGC005.h" />
+    <ClInclude Include="..\src\ColdAPI_Steam\public SDK\ISteamUGC007.h" />
+    <ClInclude Include="..\src\ColdAPI_Steam\public SDK\ISteamUGC008.h" />
+    <ClInclude Include="..\src\ColdAPI_Steam\public SDK\ISteamUGC009.h" />
+    <ClInclude Include="..\src\ColdAPI_Steam\public SDK\ISteamUGC010.h" />
+    <ClInclude Include="..\src\ColdAPI_Steam\public SDK\ISteamUGC012.h" />
+    <ClInclude Include="..\src\ColdAPI_Steam\public SDK\ISteamUGC013.h" />
+    <ClInclude Include="..\src\ColdAPI_Steam\public SDK\ISteamUnifiedMessages001.h" />
+    <ClInclude Include="..\src\ColdAPI_Steam\public SDK\ISteamUser004.h" />
+    <ClInclude Include="..\src\ColdAPI_Steam\public SDK\ISteamUser005.h" />
+    <ClInclude Include="..\src\ColdAPI_Steam\public SDK\ISteamUser006.h" />
+    <ClInclude Include="..\src\ColdAPI_Steam\public SDK\ISteamUser007.h" />
+    <ClInclude Include="..\src\ColdAPI_Steam\public SDK\ISteamUser008.h" />
+    <ClInclude Include="..\src\ColdAPI_Steam\public SDK\ISteamUser009.h" />
+    <ClInclude Include="..\src\ColdAPI_Steam\public SDK\ISteamUser010.h" />
+    <ClInclude Include="..\src\ColdAPI_Steam\public SDK\ISteamUser011.h" />
+    <ClInclude Include="..\src\ColdAPI_Steam\public SDK\ISteamUser012.h" />
+    <ClInclude Include="..\src\ColdAPI_Steam\public SDK\ISteamUser013.h" />
+    <ClInclude Include="..\src\ColdAPI_Steam\public SDK\ISteamUser014.h" />
+    <ClInclude Include="..\src\ColdAPI_Steam\public SDK\ISteamUser015.h" />
+    <ClInclude Include="..\src\ColdAPI_Steam\public SDK\ISteamUser016.h" />
+    <ClInclude Include="..\src\ColdAPI_Steam\public SDK\ISteamUser017.h" />
+    <ClInclude Include="..\src\ColdAPI_Steam\public SDK\ISteamUser018.h" />
+    <ClInclude Include="..\src\ColdAPI_Steam\public SDK\ISteamUser019.h" />
+    <ClInclude Include="..\src\ColdAPI_Steam\public SDK\ISteamUser020.h" />
+    <ClInclude Include="..\src\ColdAPI_Steam\public SDK\ISteamUserStats001.h" />
+    <ClInclude Include="..\src\ColdAPI_Steam\public SDK\ISteamUserStats002.h" />
+    <ClInclude Include="..\src\ColdAPI_Steam\public SDK\ISteamUserStats003.h" />
+    <ClInclude Include="..\src\ColdAPI_Steam\public SDK\ISteamUserStats004.h" />
+    <ClInclude Include="..\src\ColdAPI_Steam\public SDK\ISteamUserStats005.h" />
+    <ClInclude Include="..\src\ColdAPI_Steam\public SDK\ISteamUserStats006.h" />
+    <ClInclude Include="..\src\ColdAPI_Steam\public SDK\ISteamUserStats007.h" />
+    <ClInclude Include="..\src\ColdAPI_Steam\public SDK\ISteamUserStats008.h" />
+    <ClInclude Include="..\src\ColdAPI_Steam\public SDK\ISteamUserStats009.h" />
+    <ClInclude Include="..\src\ColdAPI_Steam\public SDK\ISteamUserStats010.h" />
+    <ClInclude Include="..\src\ColdAPI_Steam\public SDK\ISteamUserStats011.h" />
+    <ClInclude Include="..\src\ColdAPI_Steam\public SDK\ISteamUtils001.h" />
+    <ClInclude Include="..\src\ColdAPI_Steam\public SDK\ISteamUtils002.h" />
+    <ClInclude Include="..\src\ColdAPI_Steam\public SDK\ISteamUtils003.h" />
+    <ClInclude Include="..\src\ColdAPI_Steam\public SDK\ISteamUtils004.h" />
+    <ClInclude Include="..\src\ColdAPI_Steam\public SDK\ISteamUtils005.h" />
+    <ClInclude Include="..\src\ColdAPI_Steam\public SDK\ISteamUtils006.h" />
+    <ClInclude Include="..\src\ColdAPI_Steam\public SDK\ISteamUtils007.h" />
+    <ClInclude Include="..\src\ColdAPI_Steam\public SDK\ISteamUtils008.h" />
+    <ClInclude Include="..\src\ColdAPI_Steam\public SDK\ISteamUtils009.h" />
+    <ClInclude Include="..\src\ColdAPI_Steam\public SDK\ISteamVideo001.h" />
+    <ClInclude Include="..\src\ColdAPI_Steam\public SDK\ISteamVideo002.h" />
+    <ClInclude Include="..\src\ColdAPI_Steam\public SDK\MasterServerUpdaterCommon.h" />
+    <ClInclude Include="..\src\ColdAPI_Steam\public SDK\MatchmakingCommon.h" />
+    <ClInclude Include="..\src\ColdAPI_Steam\public SDK\MatchMakingKeyValuePair.h" />
+    <ClInclude Include="..\src\ColdAPI_Steam\public SDK\MatchmakingServersCommon.h" />
+    <ClInclude Include="..\src\ColdAPI_Steam\public SDK\MusicCommon.h" />
+    <ClInclude Include="..\src\ColdAPI_Steam\public SDK\MusicRemoteCommon.h" />
+    <ClInclude Include="..\src\ColdAPI_Steam\public SDK\NetworkingCommon.h" />
+    <ClInclude Include="..\src\ColdAPI_Steam\public SDK\OAuthCommon.h" />
+    <ClInclude Include="..\src\ColdAPI_Steam\public SDK\POSIXLibrary.h" />
+    <ClInclude Include="..\src\ColdAPI_Steam\public SDK\RemoteStorageCommon.h" />
+    <ClInclude Include="..\src\ColdAPI_Steam\public SDK\ScreenshotsCommon.h" />
+    <ClInclude Include="..\src\ColdAPI_Steam\public SDK\servernetadr.h" />
+    <ClInclude Include="..\src\ColdAPI_Steam\public SDK\Steam.h" />
+    <ClInclude Include="..\src\ColdAPI_Steam\public SDK\SteamAPI.h" />
+    <ClInclude Include="..\src\ColdAPI_Steam\public SDK\Steamclient.h" />
+    <ClInclude Include="..\src\ColdAPI_Steam\public SDK\SteamclientAPI.h" />
+    <ClInclude Include="..\src\ColdAPI_Steam\public SDK\SteamSalt.h" />
+    <ClInclude Include="..\src\ColdAPI_Steam\public SDK\SteamTypes.h" />
+    <ClInclude Include="..\src\ColdAPI_Steam\public SDK\Steamworks.h" />
+    <ClInclude Include="..\src\ColdAPI_Steam\public SDK\StreamLauncherCommon.h" />
+    <ClInclude Include="..\src\ColdAPI_Steam\public SDK\TSteamApp.h" />
+    <ClInclude Include="..\src\ColdAPI_Steam\public SDK\TSteamAppDependencyInfo.h" />
+    <ClInclude Include="..\src\ColdAPI_Steam\public SDK\TSteamAppLaunchOption.h" />
+    <ClInclude Include="..\src\ColdAPI_Steam\public SDK\TSteamAppStats.h" />
+    <ClInclude Include="..\src\ColdAPI_Steam\public SDK\TSteamAppVersion.h" />
+    <ClInclude Include="..\src\ColdAPI_Steam\public SDK\TSteamDiscountQualifier.h" />
+    <ClInclude Include="..\src\ColdAPI_Steam\public SDK\TSteamElemInfo.h" />
+    <ClInclude Include="..\src\ColdAPI_Steam\public SDK\TSteamError.h" />
+    <ClInclude Include="..\src\ColdAPI_Steam\public SDK\TSteamExternalBillingInfo.h" />
+    <ClInclude Include="..\src\ColdAPI_Steam\public SDK\TSteamGlobalUserID.h" />
+    <ClInclude Include="..\src\ColdAPI_Steam\public SDK\TSteamOfflineStatus.h" />
+    <ClInclude Include="..\src\ColdAPI_Steam\public SDK\TSteamPaymentCardInfo.h" />
+    <ClInclude Include="..\src\ColdAPI_Steam\public SDK\TSteamPaymentCardReceiptInfo.h" />
+    <ClInclude Include="..\src\ColdAPI_Steam\public SDK\TSteamPrepurchaseInfo.h" />
+    <ClInclude Include="..\src\ColdAPI_Steam\public SDK\TSteamPrepurchaseReceiptInfo.h" />
+    <ClInclude Include="..\src\ColdAPI_Steam\public SDK\TSteamProgress.h" />
+    <ClInclude Include="..\src\ColdAPI_Steam\public SDK\TSteamSplitLocalUserID.h" />
+    <ClInclude Include="..\src\ColdAPI_Steam\public SDK\TSteamSubscription.h" />
+    <ClInclude Include="..\src\ColdAPI_Steam\public SDK\TSteamSubscriptionBillingInfo.h" />
+    <ClInclude Include="..\src\ColdAPI_Steam\public SDK\TSteamSubscriptionDiscount.h" />
+    <ClInclude Include="..\src\ColdAPI_Steam\public SDK\TSteamSubscriptionReceipt.h" />
+    <ClInclude Include="..\src\ColdAPI_Steam\public SDK\TSteamSubscriptionStats.h" />
+    <ClInclude Include="..\src\ColdAPI_Steam\public SDK\TSteamUpdateStats.h" />
+    <ClInclude Include="..\src\ColdAPI_Steam\public SDK\UGCCommon.h" />
+    <ClInclude Include="..\src\ColdAPI_Steam\public SDK\UnifiedMessagesCommon.h" />
+    <ClInclude Include="..\src\ColdAPI_Steam\public SDK\UserCommon.h" />
+    <ClInclude Include="..\src\ColdAPI_Steam\public SDK\UserStatsCommon.h" />
+    <ClInclude Include="..\src\ColdAPI_Steam\public SDK\UtilsCommon.h" />
+    <ClInclude Include="..\src\ColdAPI_Steam\public SDK\VideoCommon.h" />
+    <ClInclude Include="..\src\ColdAPI_Steam\public SDK\Win32Library.h" />
+    <ClInclude Include="..\src\ColdAPI_Steam\SteamStubBypass\SteamStub.h" />
+    <ClInclude Include="..\src\ColdAPI_Steam\Steam_data.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="..\src\ColdAPI_Steam\ColdManager.cpp" />
+    <ClCompile Include="..\src\ColdAPI_Steam\CSteamCallbacks.cpp" />
+    <ClCompile Include="..\src\ColdAPI_Steam\dllmain.cpp" />
+    <ClCompile Include="..\src\ColdAPI_Steam\Hook_utils\ColdHook.cpp" />
+    <ClCompile Include="..\src\ColdAPI_Steam\Hook_utils\DistormDisassembler\src\decoder.c" />
+    <ClCompile Include="..\src\ColdAPI_Steam\Hook_utils\DistormDisassembler\src\distorm.c" />
+    <ClCompile Include="..\src\ColdAPI_Steam\Hook_utils\DistormDisassembler\src\instructions.c" />
+    <ClCompile Include="..\src\ColdAPI_Steam\Hook_utils\DistormDisassembler\src\insts.c" />
+    <ClCompile Include="..\src\ColdAPI_Steam\Hook_utils\DistormDisassembler\src\mnemonics.c" />
+    <ClCompile Include="..\src\ColdAPI_Steam\Hook_utils\DistormDisassembler\src\operands.c" />
+    <ClCompile Include="..\src\ColdAPI_Steam\Hook_utils\DistormDisassembler\src\prefix.c" />
+    <ClCompile Include="..\src\ColdAPI_Steam\Hook_utils\DistormDisassembler\src\textdefs.c" />
+    <ClCompile Include="..\src\ColdAPI_Steam\Hook_utils\DistormDisassembler\src\wstring.c" />
+    <ClCompile Include="..\src\ColdAPI_Steam\SteamStubBypass\SteamStub.cpp" />
+    <ClCompile Include="..\src\ColdAPI_Steam\Steam_data.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="..\src\ColdAPI_Steam\INI example\ColdAPI.ini" />
+    <None Include="..\src\ColdAPI_Steam\public SDK\Open Steamworks.vcproj" />
+    <MASM Include="..\src\ColdAPI_Steam\SteamStubBypass\SteamStubAsmS.asm">
+      <FileType>Document</FileType>
+    </MASM>
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+    <Import Project="$(VCTargetsPath)\BuildCustomizations\masm.targets" />
+  </ImportGroup>
+</Project>
