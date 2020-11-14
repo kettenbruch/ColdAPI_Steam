@@ -32,6 +32,9 @@ int APIENTRY wWinMain(_In_ HINSTANCE hInstance, _In_opt_ HINSTANCE hPrevInstance
 	PROCESS_INFORMATION processInfo;
 
 	int Length = GetModuleFileNameA(GetModuleHandleA(NULL), CurrentDirectory, sizeof(CurrentDirectory)) + 1;
+
+	/*  Rat431 
+
 	for (int i = Length; i > 0; i--) {
 		if (CurrentDirectory[i] == '\\') {
 			lstrcpyA(SteamAPPIDFile, CurrentDirectory);
@@ -42,6 +45,22 @@ int APIENTRY wWinMain(_In_ HINSTANCE hInstance, _In_opt_ HINSTANCE hPrevInstance
 			break;
 		}
 	}
+	*/
+
+
+	// mtcno
+	// 移除文件名 remove filename
+	PathRemoveFileSpecA(CurrentDirectory);
+	// 设置EXE路径作为当前目录
+	// 影响之后由相对路径获取文件路径
+	SetCurrentDirectoryA(CurrentDirectory);
+
+	lstrcpyA(SteamAPPIDFile, CurrentDirectory);
+	// steam_appid.txt must be always on the loader path.
+	PathAppendA(SteamAPPIDFile, "steam_appid.txt");
+	PathAppendA(CurrentDirectory, "ColdAPI.ini");
+
+
 	if (GetFileAttributesA(CurrentDirectory) == INVALID_FILE_ATTRIBUTES) {
 		MessageBoxA(NULL, "Couldn't find the configuration file(ColdAPI.ini).", "ColdClientLoader", MB_ICONERROR);
 		ExitProcess(NULL);
@@ -57,7 +76,10 @@ int APIENTRY wWinMain(_In_ HINSTANCE hInstance, _In_opt_ HINSTANCE hPrevInstance
 	InjectH = GetPrivateProfileIntA("SteamClient", "HookInjectionMode", FALSE, CurrentDirectory) == TRUE;
 
 
+	/* Rat431
+
 	CHAR TMP[MAX_PATH] = { 0 };
+
 	if (!IsNotRelativePathOrRemoveFileName(Client64Path, false)) {
 		ZeroMemory(TMP, sizeof(TMP));
 		lstrcpyA(TMP, Client64Path);
@@ -82,6 +104,46 @@ int APIENTRY wWinMain(_In_ HINSTANCE hInstance, _In_opt_ HINSTANCE hPrevInstance
 		ZeroMemory(ExeRunDir, sizeof(ExeRunDir));
 		GetFullPathNameA(TMP, MAX_PATH, ExeRunDir, NULL);
 	}
+
+	*/
+
+
+
+	// mtcno
+
+	CHAR TMP[MAX_PATH] = { 0 };
+
+	if (PathIsRelativeA(Client64Path)) {
+		ZeroMemory(TMP, sizeof(TMP));
+		lstrcpyA(TMP, Client64Path);
+		ZeroMemory(Client64Path, sizeof(Client64Path));
+		GetFullPathNameA(TMP, MAX_PATH, Client64Path, NULL);
+	}
+	if (PathIsRelativeA(ClientPath)) {
+		ZeroMemory(TMP, sizeof(TMP));
+		lstrcpyA(TMP, ClientPath);
+		ZeroMemory(ClientPath, sizeof(ClientPath));
+		GetFullPathNameA(TMP, MAX_PATH, ClientPath, NULL);
+	}
+
+	if (PathIsRelativeA(ExeFile)) {
+		ZeroMemory(TMP, sizeof(TMP));
+		lstrcpyA(TMP, ExeFile);
+		ZeroMemory(ExeFile, sizeof(ExeFile));
+		GetFullPathNameA(TMP, MAX_PATH, ExeFile, NULL);
+	}
+
+	// 直接从文件路径获取文件目录，弃用ini加载
+	if (PathFileExistsA(ExeFile)) {
+		ZeroMemory(ExeRunDir, (strlen(ExeFile) + 4) * sizeof(char));
+		lstrcpyA(ExeRunDir, ExeFile);
+		PathRemoveFileSpecA(ExeRunDir);
+	}
+	else {
+		MessageBoxA(NULL, "EXE file is not exist.", "EXE ERROR", MB_ICONERROR);
+		ExitProcess(NULL);
+	}
+
 
 #ifdef _WIN64
 	if (GetFileAttributesA(Client64Path) == INVALID_FILE_ATTRIBUTES) {
